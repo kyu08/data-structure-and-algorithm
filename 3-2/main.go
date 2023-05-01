@@ -1,34 +1,16 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+	"lib"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	n, nums := getArgs()
+	n, nums := lib.GetIntAndIntSliceFromArg()
 
 	insertionSort(nums, n)
-}
-
-func getArgs() (int, []int) {
-	scanner := bufio.NewScanner(os.Stdin)
-
-	scanner.Scan()
-	n, _ := strconv.Atoi(scanner.Text())
-
-	scanner.Scan()
-	strs := strings.Split(scanner.Text(), " ")
-
-	nums := make([]int, 0, n)
-	for _, str := range strs {
-		num, _ := strconv.Atoi(str)
-		nums = append(nums, num)
-	}
-	return n, nums
 }
 
 func insertionSort(a []int, n int) [][]int {
