@@ -33,3 +33,10 @@ func GetIntAndIntSliceFromArg() (int, []int) {
 	}
 	return n, nums
 }
+
+func GetStringSliceFromArg() []string {
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+
+	return strings.Split(scanner.Text(), " ")
+}
